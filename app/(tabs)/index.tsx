@@ -1,5 +1,5 @@
 import { Stack } from 'expo-router';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, FlatList } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
 
@@ -11,10 +11,16 @@ export default function Events() {
   return (
     <>
       <Stack.Screen options={{ title: 'Events' }} />
-      <EventListItem event= {events[0]} />
+
+      <FlatList
+        data={events}
+        renderItem={({ item })=> <EventListItem event= {item} />}
+        className='bg-white'
+      />
+      {/*
+      <EventListItem event= {events[0]} /> // burda tek tek copy past etmek yerine FlastList kullanabiliriz.
       <EventListItem event= {events[1]} />
-      <EventListItem event= {events[2]} />
-    
+      <EventListItem event= {events[2]} />   */ }
   
     </>
   );
